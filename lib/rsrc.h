@@ -5,7 +5,7 @@
 #include <stdlib.h>
 #include "testrf.h"
 
-void fatal_error(char str[]);
+void fatal_error(const char *str);
 void* s_malloc(size_t size);
 void s_free(void *ptr);
 

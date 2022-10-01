@@ -1,7 +1,7 @@
 #include "rsrc.h"
 
-void fatal_error(const char str[]){
-  fprintf(stderr, "Fatal Error: %s\n", str);
+void fatal_error(const char *str){
+  fprintf(stderr, "Fatal Error: \t%s\n", str);
   exit(EXIT_FAILURE);
 }
 

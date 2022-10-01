@@ -1,31 +1,54 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <unistd.h>
 #include "lib/testrf.h"
+#include "lib/rsrc.h"
 
-int main(int argc, char *argv[]){
+/*
+ -A                              Full output (default).
+ -H                              Show all PE headers.
+ -s                              Show PE section headers.
+ -d                              Show data directories.
+ -h                              Show specific header. It can be used multiple times.
+ -i                              Show imported functions.
+ -e                              Show exported functions.
+ -v                              Show version.
+ --help                          Show this help.
+*/
 
-  if(argc != 2)
-    exit(1);
+ int main(int argc, char *argv[]){
+
+  //if(argc != 2)
+    //fatal_error("Number of arguments invalid.");
+  int opt;
 
   PEFILE pe;  
   pe.filepath = argv[1];
-
-
   file_init(&pe);
-  //test accessing structs
-  printf("%x\n", pe.dos_hdr->e_magic);
-  printf("%x\n", pe.nt_hdr->signature);
-  printf("%x\n", pe.nt_hdr->fileHeader.machine);
-  printf("%x\n", pe.nt_hdr->optionalHeader.magic);
-  printf("%x\n", pe.nt_hdr->optionalHeader.numberOfRvaAndSizes);
-  printf("Size of IMAGE_NT_HDR: %zu\n", sizeof(IMAGE_NT_HEADERS));
-  printf("Size of IMAGE_FILE_HDR: %zu\n", sizeof(IMAGE_FILE_HEADER));
-  printf("Size of IMAGE_OPT_HDR: %zu\n", sizeof(IMAGE_OPTIONAL_HEADER));
-  printf("Size of IMAGE_SEC_HDR: %zu\n", sizeof(IMAGE_SECTION_HEADER));
 
-  printf("%x\n", pe.nt_hdr->optionalHeader.dataDirectory[1].virtualAddress);
- 
-  printf("First section name: %s\n", pe.sec_hdr->Name);
+  while((opt = getopt(argc, argv, "AHsdh:iev"))!=1){
+    
+    switch(opt){
+
+      case 'A':
+      
+      case 'H':
+
+      case 's':
+
+      case 'd':
+
+      case 'h':
+
+      case 'i':
+
+      case 'e':
+
+      case 'v':  
+
+    }
+
+  } 
 
   file_deinit(&pe);
 
