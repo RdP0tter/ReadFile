@@ -5,8 +5,7 @@
 
 extern uint16_t numOfSections; 
 
-bool file_init(PEFILE *file){
- 
+bool file_init(PEFILE *file){ 
 
   FILE *f = fopen(file->filepath, "rb");  
     if(f == NULL)  
